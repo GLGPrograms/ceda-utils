@@ -11,6 +11,14 @@ $(OUTDIR)/main.bin: main.asm
 	$(QUIET) mkdir -p $(OUTDIR)
 	$(QUIET) zcc +z80 -subtype=none -o $(OUTDIR)/main.bin main.asm
 
+.PHONY: prg
+prg: $(OUTDIR)/main.bin.prg
+
+$(OUTDIR)/%.bin.prg: $(OUTDIR)/%.bin
+	$(ECHO) '	PRG'
+	$(QUIET) echo -n -e '\x00\x10' > "$@"
+	$(QUIET) cat "$<" >> "$@"
+
 .PHONY: send
 send: $(OUTDIR)/main.bin.pkt
 	$(ECHO) '	SEND'
