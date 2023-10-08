@@ -14,11 +14,27 @@ Here you can find some utilities to jump start your computer from scratch!
 
 :warning: Mess with electronics only if you know what you are doing. Beware: you may harm your computer, or even yourself! Everything you do is at your own risk.
 
-## How to
-
-TODO: how to use this in first place (serial loader, editing ROM, etc).
-
 ## Utilities
 
+### Floppy
 [floppy](floppy-utils/)
 : Format, read and write floppy disks using your PC as data source (or sink).
+
+### Compile a C program:
+```sh
+zcc +z80 -create-app --no-crt -pragma-define:REGISTER_SP=0xC000 -m -o build/main main.c
+```
+Important: this is a linker-less and C-runtime-less compilation, so be very very careful what you do.
+Example minimal starter:
+```c
+int entrypoint(void) {
+    __asm
+    ld sp,0xc000
+    __endasm;
+
+    main();
+    for (;;)
+      ;
+}
+```
+
