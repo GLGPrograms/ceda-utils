@@ -15,4 +15,10 @@ Here you can find some utilities to jump start your computer from scratch!
 :warning: Mess with electronics only if you know what you are doing. Beware: you may harm your computer, or even yourself! Everything you do is at your own risk.
 
 ## How to
-- to be written
+
+TODO: how to use this in first place (serial loader, editing ROM, etc).
+
+## Utilities
+
+[floppy](floppy-utils/)
+: Format, read and write floppy disks using your PC as data source (or sink).
