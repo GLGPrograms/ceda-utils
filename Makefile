@@ -23,7 +23,7 @@ $(OUTDIR)/%.bin.prg: $(OUTDIR)/%.bin
 send: $(OUTDIR)/main.bin.pkt
 	$(ECHO) '	SEND'
 	$(QUIET) stty -F $(SERIALPORT) 9600 -crtscts
-	$(QUIET) cat "$<" > $(SERIALPORT)
+	$(QUIET) script/sendpacket.py < $<
 
 $(OUTDIR)/%.bin.pkt: $(OUTDIR)/%.bin
 	$(ECHO) '	PKT'
