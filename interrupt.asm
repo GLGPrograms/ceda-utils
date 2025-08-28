@@ -33,8 +33,9 @@ _main:
 
     ; set $00 as the LSB of the interrupt vector table base address
     ; (tells CTC to generate vectors at $1100)
+    ; Note: interrupt vector is always programmed to Timer Channel 0
     ld      l,$00
-    ld      c,$e3
+    ld      c,$e0
     out     (c),l
 
     im      2       ; set interrupt mode 2
