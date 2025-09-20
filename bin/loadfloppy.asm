@@ -1,4 +1,4 @@
-    org 0x1000
+    org 0x0100
 ;; https://www.isdaman.com/alsos/hardware/fdc/floppy.htm
 
 ; Brief explanation of this piece of code:

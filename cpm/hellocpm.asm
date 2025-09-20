@@ -23,3 +23,7 @@ _main:
 end:
     ; Return to CP/M
     ret
+
+letter:
+    BYTE    '@'
+

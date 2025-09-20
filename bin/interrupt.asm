@@ -1,9 +1,4 @@
-    org 0x1000
-
-prhex = $c174
-putchar = $c45e
-
-fdc_rwfs_c19d = $c19d
+    org 0x0100
 
 PUBLIC _main
 _main:
@@ -17,8 +12,8 @@ _main:
     ; disable interrupts (just in case)
     di
 
-    ; set $11 as the MSB of the interrupt vector table base address
-    ld      a,$11
+    ; set $02 as the MSB of the interrupt vector table base address
+    ld      a,$02
     ld      i,a
 
     ; timer control word
@@ -32,7 +27,7 @@ _main:
     out     (c),l
 
     ; set $00 as the LSB of the interrupt vector table base address
-    ; (tells CTC to generate vectors at $1100)
+    ; (tells CTC to generate vectors at $0200)
     ; Note: interrupt vector is always programmed to Timer Channel 0
     ld      l,$00
     ld      c,$e0
@@ -47,7 +42,7 @@ halt:
     jr      halt
 
     ; interrupt vector for CTC timer 3 must be located at 1106
-    REPT $1106 - ASMPC - $1000
+    REPT $206 - ASMPC - $100
     nop
     ENDR
     BYTE (timer_isr & $FF)
