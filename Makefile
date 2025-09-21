@@ -3,7 +3,7 @@
 include config.mk
 
 .PHONY: all
-all: utils-cpm utils-bin
+all: utils-cpm utils-bin bootloader-rom
 
 .PHONY: utils-cpm
 utils-cpm:
@@ -12,6 +12,10 @@ utils-cpm:
 .PHONY: utils-bin
 utils-bin:
 	make -f bin/Makefile
+
+.PHONY: bootloader-rom
+bootloader-rom:
+	make -f bootloader/Makefile
 
 .PHONY: clean
 clean:

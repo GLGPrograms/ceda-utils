@@ -13,13 +13,10 @@ If your computer does not come with a CP/M disk, you need to jumpstart it using 
   - depending on your supplies, if you are working in the 3rd millenium, maybe you also need some adapters (eg. USB/RS-232), "ancient" cables (eg. old fashioned DB-9/DB-25 serial cable), and maybe a DB gender changer (no pun intended)
 - EEPROM programmer for 28C32 (or larger)
   - you can even build one with an Arduino
-- 28C32 blank EEPROM
-  - or bigger, but then you'll need an adapter too
+- 28C32/28C64 blank EEPROM
 - common hardware tools (eg. screwdrivers)
 
 ⚠ Mess with electronics only if you know what you are doing. Beware: you may harm your computer, or even yourself! Everything you do is at your own risk.
-
-TODO: explain how to patch the ROM.
 
 # Build
 Install the [z88dk](https://z88dk.org/site/) suite in your path, and then just:
@@ -27,6 +24,8 @@ Install the [z88dk](https://z88dk.org/site/) suite in your path, and then just:
 ```
 make
 ```
+
+Output binaries are in the `build` directory, including the patched ROM with the serial bootloader.
 
 ## BIOS Utils
 These utils can be run even if you only have a BIOS, and can be used to jumpstart your computer from scratch (eg. if you don't have a CP/M disk).
